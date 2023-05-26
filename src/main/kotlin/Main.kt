@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
     //f201
     println("Number of digits: ${f201(458887)}")
     //f202
