@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
     println("Is $num5 contains odd number? - ${num5.f209()}")
     //210
     val number = 1221
-    println("Are the sums equal? ${number.odd().sum() == number.even().sum()}")
+    println("Are the sums of odd and even position elements equal? ${number.odd().sum() == number.even().sum()}")
 
 }
 
