@@ -26,8 +26,9 @@ fun main(args: Array<String>) {
     val num5 = 123
     println("Is $num5 contains odd number? - ${num5.f209()}")
     //210
-//    val number = 1221
-//    println("Odd and even digits sum are equal? ${number.f210()}")
+    val number = 1221
+    println("Are the sums equal? ${number.odd().sum() == number.even().sum()}")
+
 }
 
 fun f201(number: Int): Int {
@@ -35,17 +36,19 @@ fun f201(number: Int): Int {
 }
 
 fun f202(number: Int): Int {
-    return number.toString().map { it.toString().toInt() }.sum()
+    return number.toString().map { it.toString().toInt() }
+        .sum()
 }
 
 fun f203(number: Int): Int {
-    return  number.toString().map { it.toString().toInt() }.reduce { acc, digit -> acc * digit }
+    return  number.toString().map { it.toString().toInt() }
+        .reduce { acc, digit -> acc * digit }
 }
 
 fun f204(number: Int): Int {
-    val reversedString = number.toString().toList()
+    return number.toString().toList()
         .foldRight("") { char, acc -> acc + char }
-    return reversedString.toInt()
+            .toInt()
 }
 
 fun Int.f2041() {
@@ -74,9 +77,20 @@ fun Int.f207(digit: Int): Boolean {
 
 fun Int.f208(): Boolean {
     val digits = this.toString().map { it.toString().toInt() }
-    return digits.all { it == digits.first() }
+    return this.toString().map { it.toString().toInt() }
+        .all { it == digits.first() }
 }
 
 fun Int.f209(): Boolean {
     return toString().any { it.toString().toInt() % 2 == 1 }
+}
+
+fun Int.odd(): List<Int> {
+    return this.toString().map{ it.toString().toInt() }
+        .filterIndexed { index, _ -> index % 2 != 0 }
+}
+
+fun Int.even(): List<Int> {
+    return this.toString().map { it.toString().toInt() }
+        .filterIndexed { index, _ -> index % 2 == 0 }
 }
